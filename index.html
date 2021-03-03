@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+    <title>Landing Page</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a style="cursor: pointer" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="analyze.html">Analyze Recipe</a>
+        <a href="#">Notifications</a>
+        <a href="#">Explore</a>
+        <a href="#">Profile</a>
+    </div>
+    <header>
+        <nav>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <a href="index.html">Smart-Meal</a>
+        </nav>
+    </header>
+    <div id = 'header-space'></div>
+    <div id = 'nice-image'>
+        <h3 id = 'image-h3'></h3>
+    </div>
+    <div id = 'about'>
+        <h2>About The Website</h2>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+            numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+            optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+            obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+            nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+            tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+            quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
+            sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+            recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
+            minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
+            quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
+            fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
+            consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+            doloremque. Quaerat provident commodi consectetur veniam similique ad 
+            earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo 
+            fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
+            suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
+            modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam 
+            totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam 
+            quasi aliquam eligendi, placeat qui corporis!</h4>
+    </div>
+    <div id = 'quote-div'>
+        <blockquote class="zitat1">
+            Roads? Where we're going, we don't need... roads.
+           <cite>Dr. Emmett Brown</cite>
+         </blockquote>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+</html>
