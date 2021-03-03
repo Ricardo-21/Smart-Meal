@@ -1,3 +1,7 @@
+html::-webkit-scrollbar  {
+  width: 0px
+}
+
 header {
     width: 100%;
     position: fixed;
@@ -72,4 +76,78 @@ a {
     display: flex;
     flex-direction: column;
     /* margin-top: 20%; */
+}
+
+.post {
+  display: flex;
+  max-width: 430px;
+  min-width: 300px;
+  flex-direction: column;
+  background-color: rgba(72, 182, 145, 0.451);
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin: 30px 5px;
+  box-shadow: 10px 10px 10px rgba(44, 41, 38, 0.3);
+}
+
+.Title {
+  text-align: center
+}
+
+/* .post-content {
+  display: flex;
+  flex-direction: column;
+} */
+
+.post-calories {
+  padding-left: 10px;
+  font-size: 15px;
+  margin: 10px 0px;
+}
+
+.post-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.post-nutrition {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post-nutrients-cont{
+  padding: 10px;
+  padding-left: 15px;
+  min-width: 75%;
+}
+
+.post-image {
+  border-radius: 50%;
+  /* border-radius: 10px; */
+  /* backdrop-filter: blur(3px); */
+  /* background-clip: padding-box; */
+  box-shadow: 10px 10px 10px rgb(44 41 38 / 30%);
+  width: 200px;
+  height: 200px;
+}
+
+.img-container {
+  /* margin-left: 400px; */
+  display: flex;
+  align-items: center;
+}
+
+.post-labels {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+.post-labels div {
+  background-color: lightgreen;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 2px 0px;
 }
