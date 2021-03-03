@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="analyze.css">
-    <script src="analyze.js"></script>
-    <title>:D</title>
+    <link rel="stylesheet" href="signin.css">
+    <script src="signin.js"></script>
+    <title>Profile</title>
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
@@ -23,19 +23,24 @@
         </nav>
     </header>
 
-    <h1>Type in the ingredients of your recipe below!</h1>
-    <p>EX: '1 cup of chickpeas, 10 oz of beef'</p>
-    <p>Please enter each ingredient on a new line</p>
-
-    <div id = 'container'>
-        <form>
-            <input type ="text" placeholder="Title of Dish">
-            <textarea name="ingr" id="" cols="30" rows="10"></textarea>
-            <button type='submit'>Analyze!</button>
-        </form>
+    <div id = "signin">
+        <div id = "title">
+            <h1>Log in</h1>
+        </div>
+        <div id = 'form'>
+            <form id = 'signin-form'>
+                
+                <h3>Username:</h3><input type = 'text' placeholder="username" required>
+                <h3>Password:</h3><input type = 'text' placeholder="password" required>
+                <button>Login</button>
+            </form>
+        </div>
+        <div>
+            <span style = 'cursor: pointer' onclick = "switchForm('signUp')">Sign Up</span>
+        </div>   
     </div>
 
-    
+
 
     <script>
         function openNav() {
