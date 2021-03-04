@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     getQuote();
-    getLogin();
+
+    window.addEventListener('scroll', () => {
+        let currentY = window.pageYOffset;
+        
+        if(currentY >= 420){
+            document.getElementById('about').style.opacity = 1;
+        }
+
+        if(currentY >= 1050){
+            document.getElementById('quote-div').style.opacity = 1;
+        }
+    })
+
 });
 function getQuote() {
     let block = document.querySelector('.zitat1');
