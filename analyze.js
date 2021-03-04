@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('LOADED')
+
     let form = document.querySelector('form');
     let recipeContainer = document.querySelector(".recipe");
     form.addEventListener('submit', (e) => {
@@ -19,7 +20,6 @@ function analyzeFood(e, container) {
     makeRecipe(title, ingr, container);
     e.target.reset();
 }
-
 
 async function makeRecipe(title, ingr, dom) {
     const options = {
@@ -94,10 +94,11 @@ async function makePost(data, title, dom){
         } else {
             vitimensContent += `${vit}`;
         };
-    })
+    });
     vitimens.innerText = vitimensContent;
     vitimensContainer.append(vitimens);
     nutrientCont.append(vitimensContainer);
+
 
     nutritionCont.append(imgContainer, nutrientCont);
     info.append(calCont, nutritionCont)
@@ -114,13 +115,61 @@ async function makePost(data, title, dom){
         labelContainer.append(healthLabel);
     })
 
-    post.append(name, infoContainer, labelContainer);
-    postCont.append(post);
-    dom.append(postCont);
+    const socialBox = document.createElement("div");
+    socialBox.className = "social-box";
+    const btnCont = document.createElement("div");
+    btnCont.classList.add("post-btn-cont");
 
-    postJson(title, data);
+    const likes = document.createElement("div");
+    likes.className = "like-container";
+    const likeBtn = document.createElement("div");
+    likeBtn.classList.add("like-btn","social-btn");
+    likeBtn.innerText = "❤";
+    likes.append(likeBtn);
+    likeBtn.addEventListener("click", addLike);
+    const share = document.createElement("div");
+    share.className = "share-container";
+    const shareBtn = document.createElement("div");
+    shareBtn.classList.add("share-btn","social-btn");
+    shareBtn.innerText = "🧻"
+    share.append(shareBtn);
+    shareBtn.addEventListener("click", shareRecipe)
+    const comments = document.createElement("div");
+    comments.className = "comments-container";
+    const commentIcon = document.createElement("div");
+    commentIcon.classList.add("comments-btn","social-btn");
+    commentIcon.addEventListener("click", commentRecipe);
+    commentIcon.innerText = "🍔";
+    comments.append(commentIcon);
+    btnCont.append(likes, share, comments);
+    const postBtnCont = document.createElement("div");
+    postBtnCont.classList.add("post-container");
+    const postBtn = document.createElement("div");
+    postBtn.innerText = "+";
+    postBtn.addEventListener("click", () => {
+        postJson(title, data);
+    });
+    postBtn.classList.add("post-btn");
+    postBtnCont.append(postBtn);
+
+    socialBox.append(btnCont, postBtnCont);
+
+    post.append(name, infoContainer, labelContainer);
+    postCont.append(post, socialBox);
+    dom.append(postCont);
 }
 
+function addLike(e) {
+
+}
+
+function shareRecipe(e) {
+
+}
+
+function commentRecipe(e) {
+
+}
 
 function postJson(title, data){
     const options = {

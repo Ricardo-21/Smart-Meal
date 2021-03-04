@@ -78,27 +78,27 @@ a {
     /* margin-top: 20%; */
 }
 
+.post-cont {
+  display: flex;
+  justify-content: start;
+  background-color: rgba(72, 182, 145, 0.451);
+  margin: 30px 5px;
+  box-shadow: 10px 10px 10px rgba(44, 41, 38, 0.3);
+  border-radius: 10px;
+}
+
 .post {
   display: flex;
   max-width: 430px;
   min-width: 300px;
   flex-direction: column;
-  background-color: rgba(72, 182, 145, 0.451);
   padding: 5px 20px;
-  border-radius: 10px;
   font-size: 13px;
-  margin: 30px 5px;
-  box-shadow: 10px 10px 10px rgba(44, 41, 38, 0.3);
 }
 
 .Title {
   text-align: center
 }
-
-/* .post-content {
-  display: flex;
-  flex-direction: column;
-} */
 
 .post-calories {
   padding-left: 10px;
@@ -150,4 +150,35 @@ a {
   border-radius: 5px;
   padding: 2px;
   margin: 2px 0px;
+}
+
+.social-box {
+  width: 50px;
+  display: flex;
+  border-left: 3px solid rgba(220,220,220,.1);
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.social-btn{
+  padding: 10px;
+}
+
+.post-container {
+  display: flex;
+  justify-content: center;
+}
+
+.post-btn{  
+  color: grey;
+  height: 15px;
+  width: 15px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: white;
+  margin-bottom: 10px;
+  cursor: pointer
 }
