@@ -130,3 +130,7 @@ h4, blockquote{
     margin-left: 50px;
   }
   
+#about, #quote-div {
+  opacity: 0;
+  transition: opacity 0.8s;
+}
