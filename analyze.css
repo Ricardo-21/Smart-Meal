@@ -66,10 +66,15 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: midnightblue;
+    background-color: #E8FCE8;
     margin: 0;
     overflow-y: scroll;
     overflow-x: hidden;
+    font-family: 'Caveat', cursive
+}
+
+#form-submit {
+  font-family: 'Caveat', cursive
 }
 
 #container, form {
@@ -78,6 +83,47 @@ a {
     /* margin-top: 20%; */
 }
 
+#container {
+  padding-left: 5px;
+}
+
+.form-el {
+  margin: 2.5px 0px;
+  border-radius: 5px;
+  padding: 5px;
+  border: 0px;
+  background-color: azure;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  font-family: 'Caveat', cursive
+}
+
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+#form-submit:hover {
+  cursor: pointer;
+  background-color: #c1e1e1;
+}
+
+.content {
+  max-width: 70%;
+  margin-top: 100px
+}
+
+.form-instr h1 {
+  padding-bottom: 20px;
+  text-align: center;
+}
+/* post */
 .post-cont {
   display: flex;
   justify-content: start;

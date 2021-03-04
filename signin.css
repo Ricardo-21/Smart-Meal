@@ -26,6 +26,7 @@ body {
     height: 100vh;
     margin: 0;
     overflow-x: hidden;
+    font-family: 'Caveat', cursive
 }
 
 h1, p, span {
