@@ -117,4 +117,25 @@ async function makePost(data, title, dom){
     post.append(name, infoContainer, labelContainer);
     postCont.append(post);
     dom.append(postCont);
+
+    postJson(title, data);
+}
+
+
+function postJson(title, data){
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            title: title,
+            Calories: data.calories,
+            ingredients: data.ingredients,
+            totalNutrients: data.totalNutrients,
+            healthLabels: data.healthLabels
+        })
+    }
+
+    fetch('http://localhost:3000/posts',options)
 }
