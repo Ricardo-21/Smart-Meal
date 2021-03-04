@@ -1,14 +1,11 @@
 {
-    "users": [
-        {
-            "username": "Ricardo",
-            "id": 1,
-            "isLoggedIn": false
-        },
-        {
-            "username": "Jason",
-            "id": 2,
-            "isLoggedIn": true
-        }
-    ]
+  "posts": [
+    {
+      "dishTitle": "Ricardo",
+      "id": 1,
+      "ingredients": [
+        "peas"
+      ]
+    }
+  ]
 }

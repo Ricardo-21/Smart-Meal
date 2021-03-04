@@ -146,6 +146,9 @@ async function makePost(data, title, dom){
     postBtnCont.classList.add("post-container");
     const postBtn = document.createElement("div");
     postBtn.innerText = "+";
+    postBtn.addEventListener("click", () => {
+        postJson(title, data);
+    });
     postBtn.classList.add("post-btn");
     postBtnCont.append(postBtn);
 
@@ -166,4 +169,22 @@ function shareRecipe(e) {
 
 function commentRecipe(e) {
 
+}
+
+function postJson(title, data){
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            title: title,
+            Calories: data.calories,
+            ingredients: data.ingredients,
+            totalNutrients: data.totalNutrients,
+            healthLabels: data.healthLabels
+        })
+    }
+
+    fetch('http://localhost:3000/posts',options)
 }
