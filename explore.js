@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
         data.forEach((dish, index) => {
             if(index === 0){
-                makePost(dish, dish.title, recipeContainer, true, 'firstPost')    
+                makePost(dish, dish.title, recipeContainer, true, dish.id)    
             }
             else{
                 makePost(dish, dish.title, recipeContainer, true, dish.id)
