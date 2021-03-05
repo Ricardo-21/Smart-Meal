@@ -25,6 +25,7 @@ a {
     font-size: 25px;
     color: white;
     margin: 10px;
+    text-shadow: 1px 1px 2px grey;
 }
 
 .sidenav {
@@ -135,11 +136,11 @@ input[type="file"] {
 
 .post {
   display: flex;
-  max-width: 430px;
-  min-width: 300px;
+  width: 430px;
   flex-direction: column;
   padding: 5px 20px;
   font-size: 13px;
+  max-height: 362px
 }
 
 .Title {
@@ -242,4 +243,18 @@ input[type="file"] {
   padding-top: 20px;
   padding-left: 20px;
   color: black;
+}
+
+.comments {
+  overflow-y: scroll;
+  max-height: 200px;
+  padding: 10px;
+}
+
+.comments::-webkit-scrollbar {
+  width: 0px
+}
+
+#add-comment{
+  flex-direction: row;
 }
