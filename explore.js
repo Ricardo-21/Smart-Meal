@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
         data.forEach((dish, index) => {
             if(index === 0){
-                makePost(dish, dish.title, recipeContainer, true, 'firstPost')    
+                makePost(dish, dish.title, recipeContainer, true, 'firstPost','e')    
             }
             else{
-                makePost(dish, dish.title, recipeContainer, true, dish.id)
+                makePost(dish, dish.title, recipeContainer, true, dish.id,'e')
             }
         });
         
