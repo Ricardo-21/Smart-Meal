@@ -124,8 +124,9 @@ async function makePost(data, title, dom, posted=false, id="", aoe, ingr){
     postBtnCont.classList.add("post-container");
     const postBtn = document.createElement("div");
     postBtn.innerText = "+";
-    postBtn.addEventListener("click", () => {
+    postBtn.addEventListener("click", (e) => {
         postJson(title, data);
+        e.target.parentElement.parentElement.parentElement.parentElement.innerHTML = `<h4>Recipe Posted!</h4>`
     });
     postBtn.classList.add("post-btn");
     postBtnCont.append(postBtn);
