@@ -77,11 +77,13 @@ async function makePost(data, title, dom, posted=false, id="", aoe, ingr){
     const labelContainer = document.createElement("div");
     labelContainer.className = "post-labels";
     // labelContainer.innerHTML = "<h3>Labels:</h3><br>"
-    data.healthLabels.forEach(label => {
-        const healthLabel = document.createElement('div')
-        healthLabel.className = "post-label";
-        healthLabel.innerText = label;
-        labelContainer.append(healthLabel);
+    data.healthLabels.forEach((label,ind) => {
+        if(ind < 5){
+            const healthLabel = document.createElement('div')
+            healthLabel.className = "post-label";
+            healthLabel.innerText = label;
+            labelContainer.append(healthLabel);
+        }
     })
 
     const socialBox = document.createElement("div");
@@ -122,8 +124,14 @@ async function makePost(data, title, dom, posted=false, id="", aoe, ingr){
     postBtnCont.classList.add("post-container");
     const postBtn = document.createElement("div");
     postBtn.innerText = "+";
+<<<<<<< HEAD
     postBtn.addEventListener("click", () => {
         postJson(title, data, ingr);
+=======
+    postBtn.addEventListener("click", (e) => {
+        postJson(title, data);
+        e.target.parentElement.parentElement.parentElement.parentElement.innerHTML = `<h4>Recipe Posted!</h4>`
+>>>>>>> 762f2b0691c2092e9bed4e03ce372c4ba8693950
     });
     postBtn.classList.add("post-btn");
     postBtnCont.append(postBtn);
