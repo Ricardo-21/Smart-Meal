@@ -69,11 +69,13 @@ async function makePost(data, title, dom, posted=false, id=""){
     const labelContainer = document.createElement("div");
     labelContainer.className = "post-labels";
     // labelContainer.innerHTML = "<h3>Labels:</h3><br>"
-    data.healthLabels.forEach(label => {
-        const healthLabel = document.createElement('div')
-        healthLabel.className = "post-label";
-        healthLabel.innerText = label;
-        labelContainer.append(healthLabel);
+    data.healthLabels.forEach((label,ind) => {
+        if(ind < 5){
+            const healthLabel = document.createElement('div')
+            healthLabel.className = "post-label";
+            healthLabel.innerText = label;
+            labelContainer.append(healthLabel);
+        }
     })
 
     const socialBox = document.createElement("div");

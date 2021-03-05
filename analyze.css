@@ -258,3 +258,7 @@ input[type="file"] {
 #add-comment{
   flex-direction: row;
 }
+
+.recipe:first-child .post{
+  opacity: 1;
+}
