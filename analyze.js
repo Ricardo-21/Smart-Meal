@@ -39,7 +39,10 @@ async function makeRecipe(title, ingr, dom) {
     makePost(json, title, dom, false, "", 'a', ingr);
   }
 
-function postJson(title, data){
+function postJson(title, data, ingr){
+  ingr.forEach((i, index) =>{
+    ingr[index] = {text: i};
+  });
     const options = {
         method: "POST",
         headers: {
@@ -48,7 +51,7 @@ function postJson(title, data){
         body: JSON.stringify({
             title: title,
             calories: data.calories,
-            ingredients: data.ingredients,
+            ingredients: ingr,
             totalNutrients: data.totalNutrients,
             healthLabels: data.healthLabels,
             likes: 0

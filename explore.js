@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('http://localhost:3000/posts')
     .then(res => res.json())
     .then(data => {
+        console.log(data);
         data.forEach((dish, index) => {
+            
             if(index === 0){
-                makePost(dish, dish.title, recipeContainer, true, dish.id)    
+                makePost(dish, dish.title, recipeContainer, true, dish.id, 'e')    
             }
             else{
                 makePost(dish, dish.title, recipeContainer, true, dish.id,'e')

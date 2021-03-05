@@ -41,7 +41,7 @@ async function makePost(data, title, dom, posted=false, id="", aoe, ingr){
     console.log(data, data.ingredients)
     if(aoe === 'a')
     {
-        ingrs.innerText = `Ingredients: \n${ingr.map(ing => ing.text).join(", ")}`;
+        ingrs.innerText = `Ingredients: \n${ingr.map(ing => ing).join(", ")}`;
     }
     else {
         ingrs.innerText = `Ingredients: \n${data.ingredients.map(ing => ing.text).join(", ")}`;
@@ -123,7 +123,7 @@ async function makePost(data, title, dom, posted=false, id="", aoe, ingr){
     const postBtn = document.createElement("div");
     postBtn.innerText = "+";
     postBtn.addEventListener("click", () => {
-        postJson(title, data);
+        postJson(title, data, ingr);
     });
     postBtn.classList.add("post-btn");
     postBtnCont.append(postBtn);
