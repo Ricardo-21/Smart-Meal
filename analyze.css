@@ -196,6 +196,7 @@ input[type="file"] {
   border-radius: 5px;
   padding: 2px;
   margin: 2px 0px;
+  border: 2px solid rgba(44, 41, 38, .3);
 }
 
 .social-box {
@@ -208,6 +209,13 @@ input[type="file"] {
 
 .social-btn{
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 15px 5px;
+  background-color: white;
+  color: red;
 }
 
 .post-container {
@@ -227,4 +235,11 @@ input[type="file"] {
   background-color: white;
   margin-bottom: 10px;
   cursor: pointer
+}
+
+.like-count {
+  position: absolute;
+  padding-top: 20px;
+  padding-left: 20px;
+  color: black;
 }

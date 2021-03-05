@@ -4,6 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('http://localhost:3000/posts')
     .then(res => res.json())
     .then(data => {
-        data.forEach(dish => makePost(dish, dish.title, recipeContainer, true));
+        data.forEach(dish => makePost(dish, dish.title, recipeContainer, true, dish.id));
     })
 })

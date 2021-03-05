@@ -1,8 +1,7 @@
-
-
-async function makePost(data, title, dom, posted=false){
+async function makePost(data, title, dom, posted=false, id=""){
     const postCont = document.createElement("div");
     postCont.className ="post-cont";
+    postCont.id = id;
     const post = document.createElement("div");
     post.className = "post";
     const name = document.createElement("h2");
@@ -88,6 +87,12 @@ async function makePost(data, title, dom, posted=false){
     likeBtn.classList.add("like-btn","social-btn");
     likeBtn.innerText = "❤";
     likes.append(likeBtn);
+    if("likes" in data){
+        const likeCount = document.createElement("div");
+        likeCount.className = "like-count";
+        likeCount.innerText = `${data.likes}`;
+        likeBtn.append(likeCount);
+    }
     likeBtn.addEventListener("click", addLike);
     const share = document.createElement("div");
     share.className = "share-container";
@@ -127,7 +132,30 @@ async function makePost(data, title, dom, posted=false){
 }
 
 function addLike(e) {
+    // console.log(e);
+    let elementId;
+    let currentLikes;
+    if(e.target.className === "like-count") {
+        elementId = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.id;
+        currentLikes = e.target.innerText;
+        e.target.innerText = Number(currentLikes) + 1;
+    } else {
+        elementId = e.target.parentElement.parentElement.parentElement.parentElement.id;
+        currentLikes = e.target.querySelector(".like-count").innerText;
+        e.target.querySelector(".like-count").innerText = Number(currentLikes) + 1;
+    }
+    console.log(elementId, currentLikes);
+    const option = {
+        method: "PATCH",
+        headers : {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            likes: Number(currentLikes) + 1
+        })
+    }
 
+    fetch(`http://localhost:3000/posts/${elementId}`, option);
 }
 
 function shareRecipe(e) {

@@ -492,6 +492,7 @@
         "ALCOHOL_FREE",
         "SULPHITE_FREE"
       ],
+      "likes": 8,
       "id": 2
     },
     {
@@ -994,6 +995,7 @@
         "ALCOHOL_FREE",
         "SULPHITE_FREE"
       ],
+      "likes": 1,
       "id": 3
     },
     {
@@ -1661,6 +1663,7 @@
         "ALCOHOL_FREE",
         "SULPHITE_FREE"
       ],
+      "likes": 0,
       "id": 4
     },
     {
@@ -2154,7 +2157,7 @@
         "ALCOHOL_FREE",
         "SULPHITE_FREE"
       ],
-      "likes": 0,
+      "likes": 12,
       "id": 5
     }
   ]
