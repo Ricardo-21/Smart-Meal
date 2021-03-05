@@ -1,0 +1,8 @@
+.post-cont .post{
+    opacity: 0;
+    transition: 0.7s;
+}
+
+#firstPost .post {
+    opacity: 1;
+}
