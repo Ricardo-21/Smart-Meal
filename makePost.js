@@ -185,7 +185,7 @@ async function commentRecipe(e) {
         console.log("toggle");
         const title = json.title;
         const calories = json.calories;
-        const ingr = json.ingredients;
+        const ingr = json.ingredients || ingr;
         const totalNutrients = json.totalNutrients;
         const labels = json.healthLabels;
         post.innerHTML = `
