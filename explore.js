@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
                 // checking whether fully visible
                 if(position.top >= 0 && position.bottom <= window.innerHeight) {
-                    console.log('Element is fully visible in screen', post);
+                    // console.log('Element is fully visible in screen', post);
                     element.firstChild.style.opacity = 1;
                 }
 
