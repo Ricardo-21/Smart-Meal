@@ -1,4 +1,4 @@
-async function makePost(data, title, dom, posted=false, id=""){
+async function makePost(data, title, dom, posted=false, id="", aoe, ingr){
     const postCont = document.createElement("div");
     postCont.className ="post-cont";
     postCont.id = id;
@@ -38,7 +38,15 @@ async function makePost(data, title, dom, posted=false, id=""){
     ingrCont.className = "post-ingr-cont";
     const ingrs = document.createElement("p");
     ingrs.className = "post-ingrs";
-    ingrs.innerText = `Ingredients: \n${data.ingredients.map(ing => ing.text).join(", ")}`;
+    console.log(data, data.ingredients)
+    if(aoe === 'a')
+    {
+        ingrs.innerText = `Ingredients: \n${ingr.map(ing => ing.text).join(", ")}`;
+    }
+    else {
+        ingrs.innerText = `Ingredients: \n${data.ingredients.map(ing => ing.text).join(", ")}`;
+    }
+
     ingrCont.append(ingrs);
     nutrientCont.append(ingrCont);
 

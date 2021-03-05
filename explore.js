@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 makePost(dish, dish.title, recipeContainer, true, dish.id)    
             }
             else{
-                makePost(dish, dish.title, recipeContainer, true, dish.id)
+                makePost(dish, dish.title, recipeContainer, true, dish.id,'e')
             }
         });
         

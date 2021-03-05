@@ -36,7 +36,7 @@ async function makeRecipe(title, ingr, dom) {
     let data = await fetch(`https://api.edamam.com/api/nutrition-details?app_key=${APIKEYS.edamam}&app_id=d44f3481`, options)
     let json = await data.json();
     
-    makePost(json, title, dom);
+    makePost(json, title, dom, false, "", 'a', ingr);
   }
 
 function postJson(title, data){
