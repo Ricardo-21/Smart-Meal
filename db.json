@@ -492,7 +492,15 @@
         "ALCOHOL_FREE",
         "SULPHITE_FREE"
       ],
-      "likes": 8,
+      "likes": 101,
+      "comments": [
+        "Looks meh",
+        "Love it",
+        "It's a MEAL!!!",
+        "Cool!!!",
+        "I like it.",
+        "first"
+      ],
       "id": 2
     },
     {
@@ -996,6 +1004,9 @@
         "SULPHITE_FREE"
       ],
       "likes": 1,
+      "comments": [
+        "Too much Chicken, not enough rice"
+      ],
       "id": 3
     },
     {
@@ -1663,7 +1674,8 @@
         "ALCOHOL_FREE",
         "SULPHITE_FREE"
       ],
-      "likes": 0,
+      "likes": 37,
+      "comments": [],
       "id": 4
     },
     {
@@ -2158,6 +2170,7 @@
         "SULPHITE_FREE"
       ],
       "likes": 12,
+      "comments": [],
       "id": 5
     }
   ]

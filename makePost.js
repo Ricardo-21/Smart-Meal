@@ -170,6 +170,115 @@ function shareRecipe(e) {
 
 }
 
-function commentRecipe(e) {
+async function commentRecipe(e) {
+    const post = e.target.parentElement.parentElement.parentElement.parentElement.querySelector(".post");
+    const id = e.target.parentElement.parentElement.parentElement.parentElement.id;
+    console.log(id);
+    //getting comments
+    let postCall = await fetch(`http://localhost:3000/posts/${id}`);
+    let json = await postCall.json();
+    let comments = json.comments;
+    if(post.querySelector("#post-comments-title")){
+        console.log("toggle");
+        const title = json.title;
+        const calories = json.calories;
+        const ingr = json.ingredients;
+        const totalNutrients = json.totalNutrients;
+        const labels = json.healthLabels;
+        post.innerHTML = `
+            <h4 class="Title">${title}</h4>
+            <div class="post-content">
+                <div class="post-info">
+                    <div class="post-calories-cont">
+                        <h4 class="post-calories">Calories: ${calories}</h4>
+                    </div>
+                    <div class="post-nutrition">
+                        <div class="img-container">
+                            <img class="post-image" src="https://post.healthline.com/wp-content/uploads/2020/09/kidney-beans-732x549-thumbnail.jpg">
+                        </div>
+                        <div class="post-nutrients-cont">
+                            <div class="post-ingr-cont">
+                                <p class="post-ingrs">
+                                    Ingredients: 
+                                    <br>
+                                    ${ingr.map(food => food.text).join(", ")}
+                                </p>
+                            </div>
+                            <div class="post-vitimens-cont">
+                                <p class="post-vitimen">
+                                    Vitamens:
+                                    <br>
+                                    ${Object.keys(totalNutrients).sort((a,b)=> totalNutrients[b].quantity - totalNutrients[a].quantity).join(", ")}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="post-labels">
+                ${labels.map(l => `
+                    <div class="post-label">
+                    ${l}
+                    </div>
+                `).join("\n")}
+            </div>
+        `
+    } else {
+        post.innerHTML = `
+            <h2 class="Title" id="post-comments-title">
+                Comments
+            </h2>
+            <div class="post-info">
+                <div class="comments">
+                    ${comments.map(com => `
+                        <div class="comment">
+                            <h4 class="userName">Anonymous</h4>
+                            <p class="comment-content">${com}</p>
+                        </div>
+                    `).join("\n")}
+                </div>
+                <form id="add-comment">
+                    <input class="user-comment" type="text" required></input>
+                    <input class="submit-comment"type="submit" value="send"></input>
+                </form>
+            </div>
+        `;
+        post.querySelector("#add-comment").addEventListener("submit", addComment);
+    }
+}
 
+async function addComment(e){
+    e.preventDefault();
+
+    const id = e.target.parentElement.parentElement.parentElement.id;
+    let post = await fetch(`http://localhost:3000/posts/${id}`);
+    let json = await post.json();
+    let comments = json.comments;
+    const newComment = e.target[0].value;
+    comments.push(newComment);
+
+    const commentSection = e.target.parentElement.querySelector(".comments");
+    const commentDom = document.createElement("div");
+    commentDom.classList.add("comment");
+    commentDom.innerHTML = `
+        <h4 class="userName">Anonymous</h4>
+        <p class="comment-content">${newComment}</p>
+    `
+    commentSection.append(commentDom);
+    commentSection.scrollTop = commentSection.scrollHeight
+    const option = {
+        method: "PATCH",
+        headers : {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            comments: comments
+        })
+    };
+
+    fetch(`http://localhost:3000/posts/${id}`, option)
+    .then(res => res.json())
+    .then(data => console.log(data));
+
+    e.target.reset();
 }
