@@ -17,7 +17,7 @@ function switchForm (e){
         <div id = 'form'>
             <form id = 'signUp-form'>
                 
-                <h3>Username:</h3><input type = 'text' placeholder="username" required>
+                <h3>E-mail:</h3><input type = 'text' placeholder="E-mail" required>
                 <h3>Password:</h3><input type = 'text' placeholder="password" required>
                 <button>Sign Up</button>
             </form>
@@ -41,15 +41,14 @@ function switchForm (e){
         <div id = 'form'>
             <form id = 'signin-form'>
                 
-                <h3>Username:</h3><input type = 'text' placeholder="username" required>
+                <h3>E-mail:</h3><input type = 'text' placeholder="E-mail" required>
                 <h3>Password:</h3><input type = 'text' placeholder="password" required>
                 <button>Login</button>
             </form>
         </div>
         <div>
             <span style = 'cursor: pointer' onclick = "switchForm('signUp')">Sign Up</span>
-        </div>
-        
+        </div>        
         `
 
         let form = document.getElementById('signin-form');
@@ -65,13 +64,48 @@ function eventListener (form, f) {
 function signin(e) {
     e.preventDefault();
     console.log('Sign in func');
+    if(localStorage.getItem("userUID") === "undefined" || !localStorage.getItem("userUID")){
+        const email = e.target[0].value;
+        const password = e.target[1].value;
 
+        auth.signInWithEmailAndPassword(email, password)
+        .then(cred => {
+            console.log(cred);
+            localStorage.setItem("userUID", cred.user.uid);
+        })
+    }
     e.target.reset()
 }
 
 function signUp(e) {
     e.preventDefault();
     console.log('Sign Up func');
+    console.log(e.target)
+    auth.createUserWithEmailAndPassword(e.target[0].value, e.target[1].value)
+    .then(cred => {
+        console.log(cred);
+        localStorage.setItem("userUID",cred.user.UID);
+        makeUser(cred.user.uid, cred.user.email);
+    })
 
     e.target.reset()
+}
+
+function makeUser(id, email, userName="Genisis"){
+    dbRef.ref("users/" + id).set({
+        userName,
+        email,
+        id
+    })
+}
+
+function logout(e){
+    //remove if not a form to log out
+    // e.preventDefault();
+
+    auth.signOut().then(() => {
+        console.log("user signed out");
+        localStorage.removeItem("userUID");
+    })
+
 }

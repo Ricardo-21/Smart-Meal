@@ -7,6 +7,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="signin.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+
+    <script src="database.js"></script>
+    
     <script src="signin.js"></script>
     <title>Profile</title>
 </head>
@@ -32,7 +40,7 @@
         <div id = 'form'>
             <form id = 'signin-form'>
                 
-                <h3>Username:</h3><input type = 'text' placeholder="username" required>
+                <h3>E-mail:</h3><input type = 'text' placeholder="E-mail" required>
                 <h3>Password:</h3><input type = 'text' placeholder="password" required>
                 <button>Login</button>
             </form>
