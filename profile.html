@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="analyze.css">
+    <link rel="stylesheet" href="explore.css">
+    <link rel="stylesheet" href="profile.css">
+    
+    <title>Profile</title>
+</head>
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a style="cursor: pointer" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="analyze.html">Analyze Recipe</a>
+        <a href="#">Notifications</a>
+        <a href="explore.html">Explore</a>
+        <a href="signin.html">Profile</a>
+    </div>
+    <header>
+        <nav>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <a href="index.html">Smart-Meal</a>
+        </nav>
+    </header>
+
+    <div id = 'nav-space'></div>
+
+    <div id = 'cont'>
+        <div id = "profile-img-cont">
+            <div id = "profile-img"></div>
+        </div>
+    
+        <div id = 'about'>
+        <div id = 'username'>
+            <h3>USERNAME</h2>
+        </div>
+            
+            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+                numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+                optio, eaque rerum!</h4>
+        </div>
+
+        <div id = "post-cont"></div>
+    </div>
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    
+</body>
+</html>

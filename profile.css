@@ -1,0 +1,44 @@
+#nav-space {
+    width: 100vw;
+    height: 70px;
+    background-color: black;
+}
+
+#cont {
+    display: flex;
+    width: 60%;
+    align-items: center;
+    flex-direction: column;
+    background-color: chocolate;
+    margin-top: 15px;
+}
+
+#profile-img {
+    margin-top: 50px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: blue; 
+}
+
+#about {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+#post-cont {
+    width: 90%;
+    background-color: crimson;
+    
+    height: 500px; /*to be deleted later*/
+}
+
+h3, h4 {
+    background-color: crimson;
+    display: inline;
+    background-color: darkblue;
+    padding: 5px;
+}
+
+

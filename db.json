@@ -499,14 +499,7 @@
         "It's a MEAL!!!",
         "Cool!!!",
         "I like it.",
-<<<<<<< HEAD
-        "first",
-        "AYYOOO",
-        "Hey I want food",
-        ":D"
-=======
         "first"
->>>>>>> 8364a0e7c624aa237ec1a8e6d2cdc80140f031b5
       ],
       "id": 2
     },
@@ -2176,11 +2169,7 @@
         "ALCOHOL_FREE",
         "SULPHITE_FREE"
       ],
-<<<<<<< HEAD
-      "likes": 14,
-=======
       "likes": 12,
->>>>>>> 8364a0e7c624aa237ec1a8e6d2cdc80140f031b5
       "comments": [],
       "id": 5
     },
@@ -2385,215 +2374,8 @@
         "NO_OIL_ADDED",
         "KOSHER"
       ],
-<<<<<<< HEAD
-      "likes": 14,
-      "id": 7
-    },
-    {
-      "title": "Spaghetti and Meatballs",
-      "calories": 1305,
-      "ingredients": [
-        {
-          "text": "1 cup of noodles"
-        },
-        {
-          "text": "2 cups of tomato"
-        },
-        {
-          "text": "30 oz of beef"
-        }
-      ],
-      "totalNutrients": {
-        "ENERC_KCAL": {
-          "label": "Energy",
-          "quantity": 1305.1914018749999,
-          "unit": "kcal"
-        },
-        "FAT": {
-          "label": "Fat",
-          "quantity": 43.19156186937499,
-          "unit": "g"
-        },
-        "FASAT": {
-          "label": "Saturated",
-          "quantity": 17.43949559175,
-          "unit": "g"
-        },
-        "FATRN": {
-          "label": "Trans",
-          "quantity": 2.149394234375,
-          "unit": "g"
-        },
-        "FAMS": {
-          "label": "Monounsaturated",
-          "quantity": 21.915330913124997,
-          "unit": "g"
-        },
-        "FAPU": {
-          "label": "Polyunsaturated",
-          "quantity": 3.3896256506249998,
-          "unit": "g"
-        },
-        "CHOCDF": {
-          "label": "Carbs",
-          "quantity": 39.695382832499995,
-          "unit": "g"
-        },
-        "FIBTG": {
-          "label": "Fiber",
-          "quantity": 4.83,
-          "unit": "g"
-        },
-        "SUGAR": {
-          "label": "Sugars",
-          "quantity": 8.5518,
-          "unit": "g"
-        },
-        "PROCNT": {
-          "label": "Protein",
-          "quantity": 192.0483041275,
-          "unit": "g"
-        },
-        "CHOLE": {
-          "label": "Cholesterol",
-          "quantity": 567.7259870624999,
-          "unit": "mg"
-        },
-        "NA": {
-          "label": "Sodium",
-          "quantity": 694.7636980625,
-          "unit": "mg"
-        },
-        "CA": {
-          "label": "Calcium",
-          "quantity": 153.6631401875,
-          "unit": "mg"
-        },
-        "MG": {
-          "label": "Magnesium",
-          "quantity": 233.4219956875,
-          "unit": "mg"
-        },
-        "K": {
-          "label": "Potassium",
-          "quantity": 3971.2916376875,
-          "unit": "mg"
-        },
-        "FE": {
-          "label": "Iron",
-          "quantity": 20.103550999374995,
-          "unit": "mg"
-        },
-        "ZN": {
-          "label": "Zinc",
-          "quantity": 47.247476031874996,
-          "unit": "mg"
-        },
-        "P": {
-          "label": "Phosphorus",
-          "quantity": 2008.6539554375,
-          "unit": "mg"
-        },
-        "VITA_RAE": {
-          "label": "Vitamin A",
-          "quantity": 148.629713875,
-          "unit": "µg"
-        },
-        "VITC": {
-          "label": "Vitamin C",
-          "quantity": 40.826,
-          "unit": "mg"
-        },
-        "THIA": {
-          "label": "Thiamin (B1)",
-          "quantity": 1.221188555,
-          "unit": "mg"
-        },
-        "RIBF": {
-          "label": "Riboflavin (B2)",
-          "quantity": 1.6643256793749999,
-          "unit": "mg"
-        },
-        "NIA": {
-          "label": "Niacin (B3)",
-          "quantity": 46.5204158535625,
-          "unit": "mg"
-        },
-        "VITB6A": {
-          "label": "Vitamin B6",
-          "quantity": 5.151238740499999,
-          "unit": "mg"
-        },
-        "FOLDFE": {
-          "label": "Folate equivalent (total)",
-          "quantity": 210.8145708125,
-          "unit": "µg"
-        },
-        "FOLFD": {
-          "label": "Folate (food)",
-          "quantity": 81.2345708125,
-          "unit": "µg"
-        },
-        "FOLAC": {
-          "label": "Folic acid",
-          "quantity": 76.38,
-          "unit": "µg"
-        },
-        "VITB12": {
-          "label": "Vitamin B12",
-          "quantity": 19.416225248125,
-          "unit": "µg"
-        },
-        "VITD": {
-          "label": "Vitamin D",
-          "quantity": 0.96448569375,
-          "unit": "µg"
-        },
-        "TOCPHA": {
-          "label": "Vitamin E",
-          "quantity": 3.28067424875,
-          "unit": "mg"
-        },
-        "VITK1": {
-          "label": "Vitamin K",
-          "quantity": 36.489285406250005,
-          "unit": "µg"
-        },
-        "WATER": {
-          "label": "Water",
-          "quantity": 900.1646537199999,
-          "unit": "g"
-        }
-      },
-      "healthLabels": [
-        "SUGAR_CONSCIOUS",
-        "KETO_FRIENDLY",
-        "DAIRY_FREE",
-        "MILK_FREE",
-        "PEANUT_FREE",
-        "TREE_NUT_FREE",
-        "SOY_FREE",
-        "FISH_FREE",
-        "SHELLFISH_FREE",
-        "PORK_FREE",
-        "CRUSTACEAN_FREE",
-        "CELERY_FREE",
-        "MUSTARD_FREE",
-        "SESAME_FREE",
-        "LUPINE_FREE",
-        "MOLLUSK_FREE",
-        "ALCOHOL_FREE",
-        "NO_OIL_ADDED",
-        "NO_SUGAR_ADDED",
-        "SULPHITE_FREE",
-        "KOSHER"
-      ],
-      "likes": 5,
-      "id": 8
-=======
       "likes": 0,
       "id": 6
->>>>>>> 8364a0e7c624aa237ec1a8e6d2cdc80140f031b5
     }
   ]
 }
