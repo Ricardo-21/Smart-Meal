@@ -125,8 +125,12 @@ async function makePost(data, title, dom, posted=false, id="", aoe, ingr){
     const postBtn = document.createElement("div");
     postBtn.innerText = "+";
     postBtn.addEventListener("click", (e) => {
-        postJson(title, data, ingr);
-        e.target.parentElement.parentElement.parentElement.parentElement.innerHTML = `<h4>Recipe Posted!</h4>`
+        if(localStorage.getItem("userUID") && localStorage.getItem("userUID") !== "undefined"){
+            postJson(title, data, ingr);
+            e.target.parentElement.parentElement.parentElement.parentElement.innerHTML = `<h4>Recipe Posted!</h4>`
+        } else {
+            alert("Please sign in to post ^_^");
+        }
     });
     postBtn.classList.add("post-btn");
     postBtnCont.append(postBtn);
@@ -185,7 +189,7 @@ async function commentRecipe(e) {
         console.log("toggle");
         const title = json.title;
         const calories = json.calories;
-        const ingr = json.ingredients;
+        const ingr = json.ingredients || ingr;
         const totalNutrients = json.totalNutrients;
         const labels = json.healthLabels;
         post.innerHTML = `

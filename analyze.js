@@ -43,20 +43,33 @@ function postJson(title, data, ingr){
   ingr.forEach((i, index) =>{
     ingr[index] = {text: i};
   });
-    const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            title: title,
-            calories: data.calories,
-            ingredients: ingr,
-            totalNutrients: data.totalNutrients,
-            healthLabels: data.healthLabels,
-            likes: 0
-        })
-    }
+  //JSON mock stuff server
+  // const options = {
+  //     method: "POST",
+  //     headers: {
+  //         "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //         title: title,
+  //         calories: data.calories,
+  //         ingredients: ingr,
+  //         totalNutrients: data.totalNutrients,
+  //         healthLabels: data.healthLabels,
+  //         likes: 0
+  //     })
+  // }
 
-    fetch('http://localhost:3000/posts',options)
+  // fetch('http://localhost:3000/posts',options);
+
+  //Firebase
+  const id = localStorage.getItem("userUID");
+  dbRef.ref("users/" + id + "/posts").push({
+    time: new Date(),
+    title: title,
+    calories: data.calories,
+    ingredients: ingr,
+    totalNutrients: data.totalNutrients,
+    healthLabels: data.healthLabels,
+    likes: 0
+  });
 }
