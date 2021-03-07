@@ -38,7 +38,7 @@ async function makePost(data, title, dom, posted=false, id="", aoe, ingr){
     ingrCont.className = "post-ingr-cont";
     const ingrs = document.createElement("p");
     ingrs.className = "post-ingrs";
-    console.log(data, data.ingredients)
+    // console.log(data, data.ingredients)
     if(aoe === 'a')
     {
         ingrs.innerText = `Ingredients: \n${ingr.map(ing => ing).join(", ")}`;
@@ -160,6 +160,16 @@ function addLike(e) {
         e.target.querySelector(".like-count").innerText = Number(currentLikes) + 1;
     }
     console.log(elementId, currentLikes);
+    
+    //Firebase
+    let likes;
+    dbRef.ref(elementId + "/likes").on("value", snap => {
+        likes = snap.val();
+    });
+    
+    dbRef.ref(elementId + "/likes").set(likes + 1);
+    
+    //JSON server
     const option = {
         method: "PATCH",
         headers : {

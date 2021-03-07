@@ -43,6 +43,7 @@ function postJson(title, data, ingr){
   ingr.forEach((i, index) =>{
     ingr[index] = {text: i};
   });
+  
   //JSON mock stuff server
   // const options = {
   //     method: "POST",
@@ -63,13 +64,15 @@ function postJson(title, data, ingr){
 
   //Firebase
   const id = localStorage.getItem("userUID");
-  dbRef.ref("users/" + id + "/posts").push({
+  const postRef = dbRef.ref("users/" + id + "/posts").push();
+  postRef.set({
     time: new Date(),
     title: title,
     calories: data.calories,
     ingredients: ingr,
     totalNutrients: data.totalNutrients,
     healthLabels: data.healthLabels,
+    id: postRef.path.pieces_.join("/"),
     likes: 0
   });
 }
