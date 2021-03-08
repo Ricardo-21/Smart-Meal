@@ -16,9 +16,9 @@ function switchForm (e){
         </div>
         <div id = 'form'>
             <form id = 'signUp-form'>
-                
+                <h3>Username:</h3><input type="text" placeholder="John Doe" required>
                 <h3>E-mail:</h3><input type = 'text' placeholder="E-mail" required>
-                <h3>Password:</h3><input type = 'text' placeholder="password" required>
+                <h3>Password:</h3><input type = 'password' placeholder="password" required>
                 <button>Sign Up</button>
             </form>
         </div>
@@ -80,18 +80,19 @@ function signin(e) {
 function signUp(e) {
     e.preventDefault();
     console.log('Sign Up func');
-    console.log(e.target)
-    auth.createUserWithEmailAndPassword(e.target[0].value, e.target[1].value)
+    let userName = e.target[0].value;
+    auth.createUserWithEmailAndPassword(e.target[1].value, e.target[2].value)
     .then(cred => {
         console.log(cred);
         localStorage.setItem("userUID",cred.user.UID);
-        makeUser(cred.user.uid, cred.user.email);
+        makeUser(cred.user.uid, cred.user.email, userName);
     })
 
     e.target.reset()
 }
 
 function makeUser(id, email, userName="Genisis"){
+    debugger;
     dbRef.ref("users/" + id).set({
         userName,
         email,

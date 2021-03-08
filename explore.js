@@ -3,16 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     //Firebase
     dbRef.ref("users/").on("child_added", snap => {
         let user = snap.val();
-        console.log(user.posts)
-        let posts = Object.keys(user.posts).map(key => user.posts[key]);
-        posts.forEach((dish, index) => {
-            if(index === 0){
-                makePost(dish, dish.title, recipeContainer, true, dish.id, 'e')    
-            }
-            else{
-                makePost(dish, dish.title, recipeContainer, true, dish.id,'e')
-            }
-        });
+        if(user.posts){
+            let posts = Object.keys(user.posts).map(key => user.posts[key]);
+            posts.forEach((dish, index) => {
+                if(index === 0){
+                    makePost(dish, dish.title, recipeContainer, true, dish.id, 'e')    
+                }
+                else{
+                    makePost(dish, dish.title, recipeContainer, true, dish.id,'e')
+                }
+            });
+        }
 
         window.addEventListener('scroll', () => {
             let currentY = window.pageYOffset;

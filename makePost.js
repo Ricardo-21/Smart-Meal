@@ -159,7 +159,7 @@ function addLike(e) {
         currentLikes = e.target.querySelector(".like-count").innerText;
         e.target.querySelector(".like-count").innerText = Number(currentLikes) + 1;
     }
-    console.log(elementId, currentLikes);
+    // console.log(elementId, currentLikes);
     
     //Firebase
     let likes;
@@ -170,17 +170,17 @@ function addLike(e) {
     dbRef.ref(elementId + "/likes").set(likes + 1);
     
     //JSON server
-    const option = {
-        method: "PATCH",
-        headers : {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            likes: Number(currentLikes) + 1
-        })
-    }
+    // const option = {
+    //     method: "PATCH",
+    //     headers : {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         likes: Number(currentLikes) + 1
+    //     })
+    // }
 
-    fetch(`http://localhost:3000/posts/${elementId}`, option);
+    // fetch(`http://localhost:3000/posts/${elementId}`, option);
 }
 
 function shareRecipe(e) {
@@ -190,13 +190,20 @@ function shareRecipe(e) {
 async function commentRecipe(e) {
     const post = e.target.parentElement.parentElement.parentElement.parentElement.querySelector(".post");
     const id = e.target.parentElement.parentElement.parentElement.parentElement.id;
-    console.log(id);
-    //getting comments
-    let postCall = await fetch(`http://localhost:3000/posts/${id}`);
-    let json = await postCall.json();
-    let comments = json.comments;
+    // console.log(id);
+    //getting comments 
+    
+    //Firebase
+    const postRef = dbRef.ref(id)
+    let json;
+    postRef.on("value",snap=> json = snap.val());
+    let comments = json.comments || [];
+    if(comments){
+        comments = Object.keys(comments).map(key => comments[key]);
+    }
+    
     if(post.querySelector("#post-comments-title")){
-        console.log("toggle");
+        // console.log("toggle");
         const title = json.title;
         const calories = json.calories;
         const ingr = json.ingredients || ingr;
@@ -233,14 +240,24 @@ async function commentRecipe(e) {
                 </div>
             </div>
             <div class="post-labels">
-                ${labels.map(l => `
-                    <div class="post-label">
-                    ${l}
-                    </div>
-                `).join("\n")}
+                ${labels.map((l, ind) => {
+                    if(ind < 5){
+                        return `
+                            <div class="post-label">
+                            ${l}
+                            </div>
+                        `
+                    }
+                }).join("\n")}
             </div>
         `
     } else {
+        function getUserName(comment){
+            let result;
+            dbRef.ref("users/" + comment.user).on("value",snap => result = snap.val().userName);
+            return result;
+        }
+
         post.innerHTML = `
             <h2 class="Title" id="post-comments-title">
                 Comments
@@ -249,8 +266,10 @@ async function commentRecipe(e) {
                 <div class="comments">
                     ${comments.map(com => `
                         <div class="comment">
-                            <h4 class="userName">Anonymous</h4>
-                            <p class="comment-content">${com}</p>
+                            <h4 class="userName">
+                                ${getUserName(com)}
+                            </h4>
+                            <p class="comment-content">${com.text}</p>
                         </div>
                     `).join("\n")}
                 </div>
@@ -266,36 +285,51 @@ async function commentRecipe(e) {
 
 async function addComment(e){
     e.preventDefault();
-
     const id = e.target.parentElement.parentElement.parentElement.id;
-    let post = await fetch(`http://localhost:3000/posts/${id}`);
-    let json = await post.json();
-    let comments = json.comments;
+    //Firebase
+    const postRef = dbRef.ref(id + "/comments").push();
+    postRef.set({
+        user: localStorage.getItem("userUID"),
+        text: e.target[0].value,
+        time: new Date()
+    });
+
+    function getUserName(id){
+        let result;
+        dbRef.ref("users/" + id).on("value",snap => result = snap.val().userName);
+        return result;
+    }
+
+    //JSON Server
+    // let post = await fetch(`http://localhost:3000/posts/${id}`);
+    // let json = await post.json();
+    // let comments = json.comments;
     const newComment = e.target[0].value;
-    comments.push(newComment);
+    // comments.push(newComment);
 
     const commentSection = e.target.parentElement.querySelector(".comments");
     const commentDom = document.createElement("div");
     commentDom.classList.add("comment");
     commentDom.innerHTML = `
-        <h4 class="userName">Anonymous</h4>
+        <h4 class="userName">${getUserName(localStorage.getItem("userUID"))}</h4>
         <p class="comment-content">${newComment}</p>
     `
     commentSection.append(commentDom);
     commentSection.scrollTop = commentSection.scrollHeight
-    const option = {
-        method: "PATCH",
-        headers : {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            comments: comments
-        })
-    };
+    
+    // const option = {
+    //     method: "PATCH",
+    //     headers : {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         comments: comments
+    //     })
+    // };
 
-    fetch(`http://localhost:3000/posts/${id}`, option)
-    .then(res => res.json())
-    .then(data => console.log(data));
+    // fetch(`http://localhost:3000/posts/${id}`, option)
+    // .then(res => res.json())
+    // .then(data => console.log(data));
 
     e.target.reset();
 }
