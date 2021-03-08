@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function addInfo(userName, bio, posts){
     dbRef.ref("users/" + localStorage.getItem("userUID")).on("value", snap => {
         posts.innerHTML = "";
-        console.log("profile")
         let data = snap.val();
         userName.innerHTML = `
             <h3>${data.userName}</h3>

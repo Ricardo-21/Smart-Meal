@@ -66,7 +66,7 @@ function postJson(title, data, ingr){
   const id = localStorage.getItem("userUID");
   const postRef = dbRef.ref("users/" + id + "/posts").push();
   postRef.set({
-    time: new Date(),
+    time: new Date(), //doesn't get added?
     title: title,
     calories: data.calories,
     ingredients: ingr,

@@ -26,8 +26,9 @@ const dbRef = firebase.database();
 auth.onAuthStateChanged(user => {
     if(user){
         console.log("user: ", user );
-        localStorage.setItem('userUID',user.uid)
+        localStorage.setItem('userUID', user.uid)
     } else {
-        console.log("user: logged out")
+        alert("This post will show up as Anonymous.")
+        localStorage.setItem('userUID', '3ZGGnC3WGkRiSjPvLXhLBRadf3m1')
     }
 })

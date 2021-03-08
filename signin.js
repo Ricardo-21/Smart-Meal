@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', ()=> {
 
     let form = document.getElementById('signin-form');
-    eventListener(form, signin);
+    if(form) eventListener(form, signin);
 
 });
 
@@ -75,6 +75,7 @@ function signin(e) {
         })
     }
     e.target.reset()
+    //redirect to profile.html
 }
 
 function signUp(e) {
@@ -91,8 +92,8 @@ function signUp(e) {
     e.target.reset()
 }
 
-function makeUser(id, email, userName="Genisis"){
-    debugger;
+function makeUser(id, email, userName="John Doe"){
+    // debugger;
     dbRef.ref("users/" + id).set({
         userName,
         email,
