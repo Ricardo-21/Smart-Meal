@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
             let posts = Object.keys(user.posts).map(key => user.posts[key]);
             posts.forEach((dish, index) => {
                 if(index === 0){
-                    makePost(dish, dish.title, recipeContainer, true, dish.id, 'e')    
+                    makePost(dish, dish.title, recipeContainer, true, dish.id, 'e', '',dish.img)    
                 }
                 else{
-                    makePost(dish, dish.title, recipeContainer, true, dish.id, 'e')
+                    makePost(dish, dish.title, recipeContainer, true, dish.id, 'e','', dish.img)
                 }
             });
         }

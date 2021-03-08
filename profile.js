@@ -21,7 +21,7 @@ function addInfo(userName, bio, posts){
                 dbRef.ref(`users/${localStorage.getItem("userUID")}/posts/${post}`).on("value", snap => {
                     const data = snap.val();
                     console.log(data);
-                    makePost(data, data.title, posts, true, data.id, "e");
+                    makePost(data, data.title, posts, true, data.id, "e", "", data.img);
                 });
             })
         }

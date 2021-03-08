@@ -1,4 +1,4 @@
-async function makePost(data, title, dom, posted=false, id="", aoe, ingr){
+async function makePost(data, title, dom, posted=false, id="", aoe, ingr, img="https://post.healthline.com/wp-content/uploads/2020/09/kidney-beans-732x549-thumbnail.jpg"){
     const postCont = document.createElement("div");
     postCont.className ="post-cont";
     postCont.id = id;
@@ -27,10 +27,13 @@ async function makePost(data, title, dom, posted=false, id="", aoe, ingr){
     const imgContainer = document.createElement("div");
     imgContainer.className = "img-container";
     const mealImage = document.createElement("img");
-    mealImage.src = "https://post.healthline.com/wp-content/uploads/2020/09/kidney-beans-732x549-thumbnail.jpg";
+    if(aoe === 'a'){
+        handleImg(mealImage, img);
+    } else {
+        mealImage.src= img;
+    }
     mealImage.className = "post-image";
     imgContainer.append(mealImage);
-
     //nutrients
     const nutrientCont = document.createElement("div");
     nutrientCont.className = "post-nutrients-cont";
@@ -332,4 +335,20 @@ async function addComment(e){
     // .then(data => console.log(data));
 
     e.target.reset();
+}
+
+async function handleImg(cont, img){
+    let url = await postImg(img);
+    cont.src = url;
+}
+
+async function postImg(img){
+    const storageRef = firebase.storage().ref();
+    const imgRef = storageRef.child(img.name);
+    const post = await imgRef.put(img).then((e) => {
+        console.log("file uploaded");
+        console.log(e);
+    });
+    const url = await imgRef.getDownloadURL();
+    return url;  
 }
