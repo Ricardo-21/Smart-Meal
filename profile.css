@@ -6,11 +6,14 @@
 
 #cont {
     display: flex;
-    width: 70%;
+    max-width: 70%;
     align-items: center;
     flex-direction: column;
     background-color: lightsteelblue;
     margin-top: 15px;
+    box-shadow: 10px 10px 10px rgb(44 41 38 / 30%);
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 #profile-img {
@@ -28,10 +31,16 @@
 }
 
 #post-cont {
-    width: 60%;
+    display: flex;
     background-color: lightsteelblue;
-    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
     /* height: 500px; to be deleted later */
+}
+
+.post-cont{
+    max-width: 80%;
 }
 
 h3, h4 {

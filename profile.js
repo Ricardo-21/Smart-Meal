@@ -17,13 +17,18 @@ function addInfo(userName, bio, posts){
             ${data.bio || "A new user"}
         `;
         if(data.posts) {
-            Object.keys(data.posts).forEach(post => {
-                dbRef.ref(`users/${localStorage.getItem("userUID")}/posts/${post}`).on("value", snap => {
-                    const data = snap.val();
-                    console.log(data);
-                    makePost(data, data.title, posts, true, data.id, "e", "", data.img);
-                });
-            })
+            let cont = Object.keys(data.posts).map(key => data.posts[key]);
+            
+            cont.forEach((dish) => {
+                    makePost(dish, dish.title, posts, true, dish.id, 'e','', dish.img);
+            });
+            // Object.keys(data.posts).forEach(post => {
+            //     dbRef.ref(`users/${localStorage.getItem("userUID")}/posts/${post}`).on("value", async snap => {
+            //         const data = snap.val();
+            //         console.log(data);
+            //         await makePost(data, data.title, posts, true, data.id, "e", "", data.img);
+            //     });
+            // })
         }
     })
 }

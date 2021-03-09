@@ -42,7 +42,7 @@ function switchForm (e){
             <form id = 'signin-form'>
                 
                 <h3>E-mail:</h3><input type = 'text' placeholder="E-mail" required>
-                <h3>Password:</h3><input type = 'text' placeholder="password" required>
+                <h3>Password:</h3><input type = 'password' placeholder="password" required>
                 <button>Login</button>
             </form>
         </div>

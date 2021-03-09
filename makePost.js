@@ -214,7 +214,7 @@ async function commentRecipe(e) {
         const labels = json.healthLabels;
         const imgSrc = json.img || "https://post.healthline.com/wp-content/uploads/2020/09/kidney-beans-732x549-thumbnail.jpg";
         post.innerHTML = `
-            <h4 class="Title">${title}</h4>
+            <h2 class="Title">${title}</h2>
             <div class="post-content">
                 <div class="post-info">
                     <div class="post-calories-cont">
@@ -258,7 +258,11 @@ async function commentRecipe(e) {
     } else {
         function getUserName(comment){
             let result;
-            dbRef.ref("users/" + comment.user).on("value",snap => result = snap.val().userName);
+            dbRef.ref("users/" + comment.user).on("value", snap =>{
+                result = snap.val().userName;
+                return result;
+            });
+            // console.log(result);
             return result;
         }
 
@@ -271,7 +275,7 @@ async function commentRecipe(e) {
                     ${comments.map(com => `
                         <div class="comment">
                             <h4 class="userName">
-                                ${getUserName(com)}
+                                ${com.user ? getUserName(com) : "Anonymous"}
                             </h4>
                             <p class="comment-content">${com.text}</p>
                         </div>
@@ -284,6 +288,13 @@ async function commentRecipe(e) {
             </div>
         `;
         post.querySelector("#add-comment").addEventListener("submit", addComment);
+        post.querySelectorAll(".userName").forEach( (com, idx) => {
+            dbRef.ref("users/" + comments[idx].user).on("value", snap => {
+                let user = snap.val().userName;
+                com.innerText = user;
+                // debugger
+            })
+        })
     }
 }
 

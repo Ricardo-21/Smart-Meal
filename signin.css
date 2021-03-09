@@ -75,7 +75,7 @@ form {
 }
 
 #signin h1, button{
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     margin-top: 20px;
 }
 
@@ -87,6 +87,60 @@ form {
     padding-right: 150px;
     justify-content: center;
     flex-direction: column;
+    box-shadow: 10px 10px 10px rgb(44 41 38 / 30%);
+    border-radius: 20px;
+    padding: 50px 150px;
+    height: 80%
+}
+
+#signin-form input{
+    
+  margin: 2.5px 0px;
+  border-radius: 5px;
+  padding: 5px;
+  border: 0px;
+  background-color: azure;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  font-family: 'Caveat', cursive
+}
+
+#signin-form button{
+    
+  margin: 2.5px 0px;
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 5px;
+  border: 0px;
+  background-color: azure;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  font-family: 'Caveat', cursive
+}
+
+#signUp-form input{
+    
+  margin: 2.5px 0px;
+  border-radius: 5px;
+  padding: 5px;
+  border: 0px;
+  background-color: azure;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  font-family: 'Caveat', cursive
+}
+
+#signUp-form button{
+    
+  margin: 2.5px 0px;
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 5px;
+  border: 0px;
+  background-color: azure;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  font-family: 'Caveat', cursive
 }
 
 #signin div {
