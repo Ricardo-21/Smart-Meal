@@ -31,6 +31,7 @@
 }
 
 #post-cont {
+    border-radius: 20px;
     display: flex;
     background-color: lightsteelblue;
     flex-direction: column;
