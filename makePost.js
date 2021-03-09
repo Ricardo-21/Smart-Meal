@@ -212,6 +212,7 @@ async function commentRecipe(e) {
         const ingr = json.ingredients || ingr;
         const totalNutrients = json.totalNutrients;
         const labels = json.healthLabels;
+        const imgSrc = json.img || "https://post.healthline.com/wp-content/uploads/2020/09/kidney-beans-732x549-thumbnail.jpg";
         post.innerHTML = `
             <h4 class="Title">${title}</h4>
             <div class="post-content">
@@ -221,7 +222,7 @@ async function commentRecipe(e) {
                     </div>
                     <div class="post-nutrition">
                         <div class="img-container">
-                            <img class="post-image" src="https://post.healthline.com/wp-content/uploads/2020/09/kidney-beans-732x549-thumbnail.jpg">
+                            <img class="post-image" src=${imgSrc}>
                         </div>
                         <div class="post-nutrients-cont">
                             <div class="post-ingr-cont">
