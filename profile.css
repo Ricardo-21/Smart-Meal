@@ -9,7 +9,7 @@
     width: 70%;
     align-items: center;
     flex-direction: column;
-    background-color: chocolate;
+    background-color: lightsteelblue;
     margin-top: 15px;
 }
 
@@ -28,8 +28,8 @@
 }
 
 #post-cont {
-    width: 90%;
-    background-color: crimson;
+    width: 60%;
+    background-color: lightsteelblue;
     
     /* height: 500px; to be deleted later */
 }
@@ -37,8 +37,14 @@
 h3, h4 {
     background-color: crimson;
     display: inline;
-    background-color: darkblue;
+    background-color: mediumslateblue;
+    border-radius: 5px;
     padding: 5px;
+}
+
+#profile-img {
+    background-image: url('profile.PNG');
+    background-size: cover;
 }
 
 

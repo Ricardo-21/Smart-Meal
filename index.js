@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 function getQuote() {
     let block = document.querySelector('.zitat1');
-    fetch('http://staging.quotable.io/random')
+    fetch('https://api.adviceslip.com/advice')
     .then(res => res.json())
     .then(data => {
         block.innerHTML = `
-        ${data.content}
-        <cite>${data.author}</cite>
+        ${data.slip.advice}
+        <cite>Anonymous</cite>
         `
     });
 }
