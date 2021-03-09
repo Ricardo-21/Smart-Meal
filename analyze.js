@@ -31,8 +31,7 @@ async function makeRecipe(title, ingr, dom, img) {
         'Content-Type' : 'application/json'
       }
     }
-
-    let data = await fetch(`https://api.edamam.com/api/nutrition-details?app_key=${APIKEYS.edamam}&app_id=d44f3481`, options)
+    let data = await fetch(`https://api.edamam.com/api/nutrition-details?app_key=${APIKEYS.edamam}&app_id={}`, options)
     let json = await data.json();
     makePost(json, title, dom, false, "", 'a', ingr, img);
   }

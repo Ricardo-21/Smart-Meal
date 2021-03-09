@@ -22,6 +22,8 @@
     
     <script src="makePost.js"></script>
     <script src="explore.js"></script>
+    <script src="signin.js"></script>
+    <script src="handleLogin.js"></script>
     <link rel="stylesheet" href="explore.css">
     <title>Document</title>
 </head>
@@ -29,14 +31,15 @@
     <div id="mySidenav" class="sidenav">
         <a style="cursor: pointer" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="analyze.html">Analyze Recipe</a>
-        <a href="#">Notifications</a>
         <a href="explore.html">Explore</a>
-        <a href="signin.html">Profile</a>
+        <div class="login-co">
+            <a href="signin.html">Login</a>
+        </div>
     </div>
     <header>
         <nav>
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            <a href="index.html">Smart-Meal</a>
+            <span class="navItem" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <a class="navItem" href="index.html">Smart-Meal</a>
         </nav>
     </header>
 

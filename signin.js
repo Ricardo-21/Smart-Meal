@@ -57,21 +57,22 @@ function switchForm (e){
 }
 
 function eventListener (form, f) {
-    console.log(form);
+    // console.log(form);
     form.addEventListener('submit', f);
 }
 
-function signin(e) {
+async function signin(e) {
     e.preventDefault();
-    console.log('Sign in func');
-    if(localStorage.getItem("userUID") === "undefined" || !localStorage.getItem("userUID")){
+    await logout();
+    if(localStorage.getItem("userUID") === "undefined" || !localStorage.getItem("userUID") || localStorage.getItem("userUID") === null){
         const email = e.target[0].value;
         const password = e.target[1].value;
-
         auth.signInWithEmailAndPassword(email, password)
         .then(cred => {
-            console.log(cred);
             localStorage.setItem("userUID", cred.user.uid);
+            document.querySelector("nav").querySelector("a").click();
+        }).catch(e => {
+            auth.signInWithEmailAndPassword("jsonserver1243@gmail.com", "Pa55word");
         })
     }
     e.target.reset()
@@ -101,7 +102,7 @@ function makeUser(id, email, userName="John Doe"){
     })
 }
 
-function logout(e){
+async function logout(cont){
     //remove if not a form to log out
     // e.preventDefault();
 

@@ -28,7 +28,7 @@ auth.onAuthStateChanged(user => {
         console.log("user: ", user );
         localStorage.setItem('userUID', user.uid)
     } else {
-        alert("This post will show up as Anonymous.")
+        // alert("This post will show up as Anonymous.")
         localStorage.setItem('userUID', '3ZGGnC3WGkRiSjPvLXhLBRadf3m1')
     }
 })
