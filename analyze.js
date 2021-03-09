@@ -31,9 +31,15 @@ async function makeRecipe(title, ingr, dom, img) {
         'Content-Type' : 'application/json'
       }
     }
-    let data = await fetch(`https://api.edamam.com/api/nutrition-details?app_key=${APIKEYS.edamam}&app_id={}`, options)
-    let json = await data.json();
-    makePost(json, title, dom, false, "", 'a', ingr, img);
+
+    dbRef.ref('apikey/').on('value', async (snap) => {
+      const stuff = snap.val();
+
+
+      let data = await fetch(`https://api.edamam.com/api/nutrition-details?app_key=${stuff.key}&app_id=${stuff.id}`, options)
+      let json = await data.json();
+      makePost(json, title, dom, false, "", 'a', ingr, img);
+    })
   }
 
 function postJson(title, data, ingr){

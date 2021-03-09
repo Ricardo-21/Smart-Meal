@@ -338,8 +338,13 @@ async function addComment(e){
 }
 
 async function handleImg(cont, img){
-    let url = await postImg(img);
-    cont.src = url;
+    if(img !== "https://post.healthline.com/wp-content/uploads/2020/09/kidney-beans-732x549-thumbnail.jpg") {
+        let url = await postImg(img);
+        cont.src = url;
+    } else {
+        cont.src = img;
+    }
+    
 }
 
 async function postImg(img){

@@ -13,7 +13,9 @@ function hangleLogin(id){
         logoutBtn.addEventListener("click", () => {
             logout()
             .then(() => {
-                window.location.reload();
+                // window.location.reload();
+                // document.querySelector('nav').querySelector('a').click()
+                window.location.replace('index.html');
             });
         });
     }
